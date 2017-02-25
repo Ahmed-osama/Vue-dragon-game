@@ -1,0 +1,170 @@
+html
+  head
+    link( href="https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat" rel="stylesheet")
+
+    link(rel='stylesheet' href='style.css')
+
+    title Ahmed osama - Front-end developer
+  body
+    main.container#app
+      section.person
+        .person__img
+          img(v-bind:src='img' @click="toggle")
+        h1.person__name
+          | {{name}}
+          span {{counter}}
+        h2.person__job {{jobTitle}}
+        .btn-holder.btn-holder--left
+          a.btn(href="#" @click.prevent='count') Downolad 1.0
+          a.btn(href="#" @click.prevent='discount') Demos
+      section
+        h3.section-title summary
+        p(v-html='summary')
+      section.info
+        ul.info__details
+          li.info__detailItem
+            strong Location 
+            | Nasr city, Cairo, Egypt
+          li.info__detailItem
+            strong Phone  
+            | +002 01066867637
+          li.info__detailItem
+            strong Email 
+            | ahmod.osama@gmail.com
+          li.info__detailItem
+            strong Linkedin  
+            a(href="https://eg.linkedin.com/pub/ahmed-osama/7b/92a/517") https://eg.linkedin.com/pub/ahmed-osama/7b/92a/517
+          li.info__detailItem
+            strong Behance 
+            a(href="https://www.behance.net/Ahmed-Osama") https://www.behance.net/Ahmed-Osama
+          li.info__detailItem
+            strong codepen 
+            a(href="http://codepen.io/Ahmed-osama/") http://codepen.io/Ahmed-osama/
+          li.info__detailItem
+            strong Github 
+            a(href="https://github.com/Ahmed-osama") https://github.com/Ahmed-osama
+          li.info__detailItem
+            strong Medium 
+            a(href="https://medium.com/@ahmod.osama") https://medium.com/@ahmod.osama
+      
+      section
+        h3.section-title My skills
+        ul.mainSkill
+          li.mainSkill__item Javascript
+          li.mainSkill__item CSS
+          li.mainSkill__item HTMl
+          li.mainSkill__item Design
+        ul.skills
+          
+            li.skills__item(v-for="skill in skills") {{skill}}
+      section
+        h3.section-title Education
+        h4 webdesign diploma
+        p 2012 we design diploma included html , css , photoshop, dreamweaver, graduation project
+
+        h4 Bachelor of commerce
+        p 2009 - 2013
+
+      section.experince
+        h3.section-title Experince
+        .col-half
+       
+          .company
+            h4.company__title: a(href="http://mediapanarab.com") Mediapanarab
+            span.company__duration
+              strong 2014
+              |till
+              strong 2017
+
+            ul.projects
+              li.projects__item
+                h5.projects__title korabia
+                a.projects__url(href="http://korabia.com") http://korabia.com
+              li.projects__item
+                h5.projects__title shamlola
+                a.projects__url(href="http://shamlola.com") http://shamlola.com
+              li.projects__item
+                h5.projects__title Scores
+                a.project__url(href="http:s//scores.korabia.com/") http://scores.korabia.com/
+              li.projects__item
+                h5.projects__title Cup of African Nation
+                a.projects__url(href="http://can.korabia.com/") http://can.korabia.com/
+              li.projects__item
+                h5.projects__title Euro Korabia
+                a.projects__url(href="http://euro.korabia.com/") http://euro.korabia.com/
+              li.projects__item
+                h5.projects__title Ramdan Gana
+                a.projects__url(href="http://ramadan-gana.com") http://ramadan-gana.com
+          
+          .company
+            h4.company__title: a(href="http://marvel.com.sa/")  Marvel systems
+            span.company__duration
+              strong 2012
+              |till
+              strong 2014
+
+            ul.projects
+              li.projects__item
+                h5.projects__title Tawassol
+                a.projects__url(href="") Tawassol un availabel online
+              li.projects__item
+                h5.projects__title ad House qata
+                a.projects__url(href="http://adhouseqatar.com") http://adhouseqatar.com
+              li.projects__item
+                h5.projects__title Diesel Power
+                a.projects__url(href="http://diesel-power.co") http://diesel-power.co
+              li.projects__item
+                h5.projects__title Al Omran Business Website
+                a.projects__url(href="http://www.aso1.com/") http://www.aso1.com/
+              li.projects__item
+                h5.projects__title Al Omran Business Website
+                a.projects__url(href="http://www.aso1.com/") http://www.aso1.com/
+        
+        .col-half 
+          .company
+            h4.company__title Freelance
+            span.company__duration
+              strong 2012
+              |till
+              strong now
+
+            ul.projects
+              li.projects__item
+                h5.projects__title ya3ni
+                a.project__url(href="yani.surgse.sh/") yani.surge.sh/
+              li.projects__item
+                h5.projects__title www.dibusinesses.com
+                a.projects__url(href="kargguide.eu5.org/dib/") www.dibusinesses.com
+              li.projects__item
+                h5.projects__title 4kharj
+                a.project__url(href="http://4ksharj.com/") http://4kharj.com/
+              li.projects__item
+                h5.projects__title lamst october
+                a.projects__url(href="www.lamst-ocotber.com/") www.lamst-ocotber.com/
+              li.projects__item
+                h5.projects__title Design Works
+                a.projects__url(href="https://www.behance.net/Ahmed-Osama") https://www.behance.net/Ahmed-Osama 
+          .company
+            h4.company__title: a(href="http://www.bdwey.com/")  bdwey
+            span.company__duration
+              strong 2012
+              |till
+              strong 2013
+
+            ul.projects
+              li.projects__item
+                h5.projects__title game Center
+                a.projects__url(href="http://www.mooo5.com/") http://www.mooo5.com/
+              li.projects__item
+                h5.projects__title picxat
+                a.project__url(href="http://piscxat.com") picxat.com
+              li.projects__item
+                h5.projects__title bdwey
+                a.project__url(href="http://wwsw.bdwey.com/") http://www.bdwey.com/
+              li.projects__item
+                h5.projects__title Design Works
+                a.projects__url(href="https://www.behance.net/Ahmed-Osama") https://www.behance.net/Ahmed-Osama
+        .clear     
+    script(src="//localhost:9111/livereload.js")
+    script(src="vue.js")
+    script(src="app.js")
