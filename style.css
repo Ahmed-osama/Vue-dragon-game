@@ -424,19 +424,22 @@ template, [hidden] {
   padding-start: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  padding: 80px 0;
-  padding-top: 110px;
+body, .person__name {
   background: #35495e;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #35495e, #41b883);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #35495e, #41b883);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 80px 0;
+  padding-top: 3em;
   color: #333333;
   font-family: "Montserrat", sans-serif;
   line-height: 1.5em;
@@ -452,9 +455,11 @@ ul {
   background: #fff;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
-  border-radius: 30px;
+  border-radius: 1px;
   padding: 0 3em;
   padding-left: 300px;
+  transition: 0.2s;
+  margin-bottom: 5em;
 }
 
 section {
@@ -467,13 +472,19 @@ section + section {
 }
 
 .section-title {
-  margin-bottom: 2.5em;
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Fredoka One", cursive;
   font-weight: 300;
   color: #131313;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6em;
 }
 
 strong {
@@ -498,50 +509,51 @@ a:hover {
 }
 .person__name {
   font-size: 3em;
+  line-height: 1em;
+  margin-top: 0;
+  margin-bottom: 0.25em;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .person__details {
   text-align: left;
 }
 .person__job {
-  margin-bottom: 0;
-}
-
-.info__detailItem strong {
-  display: inline-block;
-  min-width: 100px;
-  overflow: hidden;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-.info__detailItem strong:after {
-  content: ":";
-  float: right;
-}
-
-.mainSkill {
   margin-bottom: 1em;
 }
-.mainSkill__item {
-  display: inline-block;
-  padding: 15px 20px;
+
+.fixedFooter {
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+.fixedFooter > * {
+  align-items: stretch;
+  padding: 2em;
+  border-left: 1px solid #dfdfdf;
   text-align: center;
-  font-size: 1em;
-  font-weight: bold;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
+}
+.fixedFooter > *:first-child {
+  border-left: none;
 }
 
-.skills__item {
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 5px 2px;
+[class^="col"] {
+  float: left;
 }
 
 .col-half {
   width: 50%;
-  float: left;
+}
+
+.col-third {
+  width: 33.3333%;
 }
 
 .clear {
@@ -549,53 +561,6 @@ a:hover {
   clear: both;
 }
 
-.company__title {
-  font-size: 1.2em;
-}
-.company__title a {
-  text-decoration: none;
-  color: inherit;
-}
-.company__duration {
-  font-size: 0.9em;
-  margin-bottom: 1em;
-  display: block;
-}
-.company__duration strong {
-  margin-right: 5px;
-}
-.company__duration strong:last-child {
-  margin-left: 5px;
-}
-
-.projects {
-  padding-left: 20px;
-  border-left: 2px solid;
-  margin-bottom: 3em;
-}
-.projects__item {
-  margin-bottom: 1em;
-  position: relative;
-}
-.projects__item:before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 15px;
-  position: absolute;
-  left: -20px;
-  top: 10px;
-  background: #333333;
-}
-.projects__title {
-  text-transform: uppercase;
-}
-.projects__url {
-  font-size: 0.8em;
-  color: #666666;
-}
-
-/*--------------------*/
 img {
   transition: 0.2s;
 }
@@ -610,6 +575,10 @@ img.toggle {
   text-align: left;
 }
 
+[v-on] {
+  cursor: pointer;
+}
+
 .btn {
   background: #41b883;
   color: #fff;
@@ -617,7 +586,7 @@ img.toggle {
   display: inline-block;
   min-width: 100px;
   text-align: center;
-  margin: 15px auto;
+  margin: 0 0 15px auto;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -627,6 +596,24 @@ img.toggle {
 }
 .btn + .btn {
   margin-left: 10px;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  transition: 0.2s;
+  background: #333;
+  margin: 5px;
+}
+.box.green {
+  background: #41b883;
+}
+.box.blue {
+  background: #35495e;
+}
+.box.gry {
+  background: #333;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -8,133 +8,25 @@
   <body>
     <main class="container" id="app">
       <section class="person">
-        <div class="person__img"><img v-bind:src="img" @click="toggle"/></div>
-        <h1 class="person__name">{{name}}<span>{{counter}}</span></h1>
+        <div class="person__img"><img v-bind:src="img"/></div>
+        <h1 class="person__name">{{name}}</h1>
         <h2 class="person__job">{{jobTitle}}</h2>
-        <div class="btn-holder btn-holder--left"><a class="btn" href="#" @click.prevent="count">Downolad 1.0</a><a class="btn" href="#" @click.prevent="discount">Demos</a></div>
+        <div class="btn-holder btn-holder--left"><a class="btn" href="#">Downolad 1.0</a><a class="btn" href="#">Demos</a></div>
       </section>
       <section>
-        <h3 class="section-title">summary</h3>
-        <p v-html="summary"></p>
+        <h3 class="section-title">playing With classes</h3>
+        <div class="box" v-for="n in counter" :style="style"></div>
       </section>
-      <section class="info">
-        <ul class="info__details">
-          <li class="info__detailItem"><strong>Location </strong>Nasr city, Cairo, Egypt</li>
-          <li class="info__detailItem"><strong>Phone  </strong>+002 01066867637</li>
-          <li class="info__detailItem"><strong>Email </strong>ahmod.osama@gmail.com</li>
-          <li class="info__detailItem"><strong>Linkedin  </strong><a href="https://eg.linkedin.com/pub/ahmed-osama/7b/92a/517">https://eg.linkedin.com/pub/ahmed-osama/7b/92a/517</a></li>
-          <li class="info__detailItem"><strong>Behance </strong><a href="https://www.behance.net/Ahmed-Osama">https://www.behance.net/Ahmed-Osama</a></li>
-          <li class="info__detailItem"><strong>codepen </strong><a href="http://codepen.io/Ahmed-osama/">http://codepen.io/Ahmed-osama/</a></li>
-          <li class="info__detailItem"><strong>Github </strong><a href="https://github.com/Ahmed-osama">https://github.com/Ahmed-osama</a></li>
-          <li class="info__detailItem"><strong>Medium </strong><a href="https://medium.com/@ahmod.osama">https://medium.com/@ahmod.osama</a></li>
-        </ul>
-      </section>
-      <section>
-        <h3 class="section-title">My skills</h3>
-        <ul class="mainSkill">
-          <li class="mainSkill__item">Javascript</li>
-          <li class="mainSkill__item">CSS</li>
-          <li class="mainSkill__item">HTMl</li>
-          <li class="mainSkill__item">Design</li>
-        </ul>
-        <ul class="skills">
-          <li class="skills__item" v-for="skill in skills">{{skill}}</li>
-        </ul>
-      </section>
-      <section>
-        <h3 class="section-title">Education</h3>
-        <h4>webdesign diploma</h4>
-        <p>2012 we design diploma included html , css , photoshop, dreamweaver, graduation project</p>
-        <h4>Bachelor of commerce</h4>
-        <p>2009 - 2013</p>
-      </section>
-      <section class="experince">
-        <h3 class="section-title">Experince</h3>
-        <div class="col-half">
-          <div class="company">
-            <h4 class="company__title"><a href="http://mediapanarab.com">Mediapanarab</a></h4><span class="company__duration"><strong>2014</strong>till<strong>2017</strong></span>
-            <ul class="projects">
-              <li class="projects__item">
-                <h5 class="projects__title">korabia</h5><a class="projects__url" href="http://korabia.com">http://korabia.com</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">shamlola</h5><a class="projects__url" href="http://shamlola.com">http://shamlola.com</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Scores</h5><a class="project__url" href="http:s//scores.korabia.com/">http://scores.korabia.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Cup of African Nation</h5><a class="projects__url" href="http://can.korabia.com/">http://can.korabia.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Euro Korabia</h5><a class="projects__url" href="http://euro.korabia.com/">http://euro.korabia.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Ramdan Gana</h5><a class="projects__url" href="http://ramadan-gana.com">http://ramadan-gana.com</a>
-              </li>
-            </ul>
-          </div>
-          <div class="company">
-            <h4 class="company__title"><a href="http://marvel.com.sa/"> Marvel systems</a></h4><span class="company__duration"><strong>2012</strong>till<strong>2014</strong></span>
-            <ul class="projects">
-              <li class="projects__item">
-                <h5 class="projects__title">Tawassol</h5><a class="projects__url" href="">Tawassol un availabel online</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">ad House qata</h5><a class="projects__url" href="http://adhouseqatar.com">http://adhouseqatar.com</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Diesel Power</h5><a class="projects__url" href="http://diesel-power.co">http://diesel-power.co</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Al Omran Business Website</h5><a class="projects__url" href="http://www.aso1.com/">http://www.aso1.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Al Omran Business Website</h5><a class="projects__url" href="http://www.aso1.com/">http://www.aso1.com/</a>
-              </li>
-            </ul>
-          </div>
+      <section class="fixedFooter">
+        <div class="col-third">
+          <input type="color" v-model="bgColor"/>
+          <input type="range" v-model="demintion" min="0" max="100"/>
         </div>
-        <div class="col-half"> 
-          <div class="company">
-            <h4 class="company__title">Freelance</h4><span class="company__duration"><strong>2012</strong>till<strong>now</strong></span>
-            <ul class="projects">
-              <li class="projects__item">
-                <h5 class="projects__title">ya3ni</h5><a class="project__url" href="yani.surgse.sh/">yani.surge.sh/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">www.dibusinesses.com</h5><a class="projects__url" href="kargguide.eu5.org/dib/">www.dibusinesses.com</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">4kharj</h5><a class="project__url" href="http://4ksharj.com/">http://4kharj.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">lamst october</h5><a class="projects__url" href="www.lamst-ocotber.com/">www.lamst-ocotber.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Design Works</h5><a class="projects__url" href="https://www.behance.net/Ahmed-Osama">https://www.behance.net/Ahmed-Osama </a>
-              </li>
-            </ul>
-          </div>
-          <div class="company">
-            <h4 class="company__title"><a href="http://www.bdwey.com/"> bdwey</a></h4><span class="company__duration"><strong>2012</strong>till<strong>2013</strong></span>
-            <ul class="projects">
-              <li class="projects__item">
-                <h5 class="projects__title">game Center</h5><a class="projects__url" href="http://www.mooo5.com/">http://www.mooo5.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">picxat</h5><a class="project__url" href="http://piscxat.com">picxat.com</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">bdwey</h5><a class="project__url" href="http://wwsw.bdwey.com/">http://www.bdwey.com/</a>
-              </li>
-              <li class="projects__item">
-                <h5 class="projects__title">Design Works</h5><a class="projects__url" href="https://www.behance.net/Ahmed-Osama">https://www.behance.net/Ahmed-Osama</a>
-              </li>
-            </ul>
-          </div>
+        <div class="col-third"><a class="btn" href="#" @click.prevent="count">+</a><a class="btn" href="#" @click.prevent="discount">-</a></div>
+        <div class="col-third">
+          <h6>counter</h6>
+          <h2>{{counter}} : {{counter > 10? "grater than 10 ": "less than ten"}}</h2>
         </div>
-        <div class="clear">    </div>
       </section>
     </main>
     <script src="//localhost:9111/livereload.js"></script>

@@ -2,19 +2,25 @@ $bodyFont:'Montserrat', sans-serif;
 $titleFont: 'Fredoka One', cursive;
 $dark:#333333;
 $wh:#fff;
+$green:#41b883;
+$blue:#35495e;
+$gry:#333;
 @import '_normalize.scss';
+%main-Gradient{
+	background: #35495e; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #35495e , #41b883); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #35495e , #41b883); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 *{
 	box-sizing: border-box;
 }
 body{
 	padding:80px 0;
-	padding-top: 110px;
-	background: #35495e; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #35495e , #41b883); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #35495e , #41b883); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding-top: 3em;
 	color:$dark;
     font-family: $bodyFont;
-	line-height: 1.5em;   
+	line-height: 1.5em;
+	@extend %main-Gradient;   
 }
 ul{
 	list-style-type: none;
@@ -27,25 +33,32 @@ ul{
 	background: $wh;
 	box-shadow:0 10px 25px rgba(0,0,0,0.3);
 	margin:0 auto;
-	border-radius:30px;
+	border-radius:1px;
 	padding:0 3em;
 	padding-left:300px;
+	transition:0.2s;
+	margin-bottom: 5em;
 }
 section{
 	margin:0 -3em;
 	padding:3em;
 	border-left:1px solid #dfdfdf;
-	&+&{
+	& + &{
 		border-top:1px solid #dfdfdf;
 	}
 }
 .section-title{
-	margin-bottom:2.5em;
+	font-size: 1.5em;
+	margin-bottom:1.5em;
 }
 h1,h2,h3,h4,h5,h6{
 	font-family:$titleFont;
 	font-weight: 300;
 	color:#131313;
+}
+p{
+	font-size: 1.1em;
+	line-height: 1.6em;
 }
 strong{
 	font-weight: 700;
@@ -56,7 +69,7 @@ a{
 		color:blue;
 	}
 }
-
+// SECTIONS
 .person{
 	&__img{
 		position: fixed;
@@ -69,113 +82,60 @@ a{
 	}
 	&__name {
 		font-size: 3em;
+		line-height: 1em;
+		margin-top: 0;
+		margin-bottom:0.25em;
+		@extend %main-Gradient;
+		-webkit-background-clip: text;
+   		-webkit-text-fill-color: transparent;
 	}
 	&__details{
 		text-align: left;
 	}
 	&__job{
-		margin-bottom: 0;
+		margin-bottom: 1em;
 	}
 
 }
-.info{
-	&__detailItem{
-		strong{
-			display: inline-block;
-			min-width:100px;
-			overflow: hidden;
-			margin-right: 10px;
-			vertical-align: middle;
-			&:after{
-				content:":";
-				float: right;
-			}
+.fixedFooter{
+	box-shadow:0 -10px 25px rgba(0,0,0,0.1);
+	background: $wh;
+	display:flex;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	right: 0;
+	margin: 0;
+	padding:0;
+
+	> *{
+		align-items:stretch;
+		padding:2em;
+		border-left:1px solid #dfdfdf;
+		text-align: center;
+		&:first-child{
+			border-left:none;
 		}
 	}
 }
 
-.mainSkill{
-	margin-bottom: 1em;
-	&__item{
-		display: inline-block;
-		padding:15px 20px;
-		text-align: center;
-		font-size: 1em;
-		font-weight: bold;
-		border-radius:10px;
-		background: rgba(0,0,0,0.1);
-		
-	}
-}
-
-.skills{
-	&__item{
-		display: inline-block;
-		padding:10px 15px;
-		border-radius:10px;
-		background: rgba(0,0,0,0.1);
-		margin:5px 2px;
-	}
+// Layout
+[class^="col"]{
+	float:left;
 }
 .col-half{
 	width: 50%;
-	float:left;
-
+}
+.col-third{
+	width: 33.3333%;
 }
 .clear{
 	display: table;
 	clear: both;
 }
-.company{
-	&__title{
-		font-size: 1.2em;
-		a{
-			text-decoration: none;
-			color:inherit;
-		}
-	}
-	&__duration{
-		font-size: 0.9em;
-		margin-bottom: 1em;
-		display: block;
-		strong{
-			margin-right: 5px;
-			&:last-child{
-				margin-left: 5px;
-			}
-		}	
-	}
-}
 
-.projects{
-	padding-left:20px;
-	border-left:2px solid;
-	margin-bottom: 3em;
-	&__item{
-		margin-bottom: 1em;
-		position: relative;
-		&:before{
-			content:"";
-			display: block;
-			height: 2px;
-			width: 15px;
-			position:absolute;
-			left: -20px;
-			top: 10px;
-			background: $dark;
-		}
-	}
-	&__title{
-		text-transform: uppercase;
-	}
-	&__url{
-		font-size: 0.8em;
-		color:lighten($dark,20%);
-	}
-}
-
-
-/*--------------------*/
+// BTN
 
 img{
 	transition:0.2s;
@@ -190,6 +150,10 @@ img{
 		text-align:left;
 	}
 }
+
+[v-on]{
+	cursor: pointer;
+}
 .btn{
 	background: #41b883;
 	color:$wh;
@@ -197,7 +161,7 @@ img{
 	display:inline-block;
 	min-width: 100px;
 	text-align: center;
-	margin:15px auto;
+	margin: 0 0 15px auto;
 	white-space:nowrap;
 	text-decoration: none;
 	&:hover{
@@ -206,5 +170,26 @@ img{
 	}
 	& + &{
 		margin-left: 10px;
+	}
+}
+
+
+// Test boxes
+
+.box{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	transition:0.2s;
+	background:$gry;
+	margin:5px;
+	&.green{
+		background: $green;
+	}
+	&.blue{
+		background: $blue;
+	}
+	&.gry{
+		background:$gry;
 	}
 }

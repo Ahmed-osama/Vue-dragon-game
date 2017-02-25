@@ -3,28 +3,53 @@ new Vue({
 	data:{
 		name:"Vue-Kite",
 		img:"img/logo.png",
-		jobTitle:"Front-end developer",
-		skills:["jquery","vue.js","pug","sass","grunt","git","oocss","mvc","ui design","BEM","photoshop","ajax","wireframing","performance","webpack","usability","responsive","bootstrap", "scrum"],
-		skillSearchWord:"",
-		summary:'<p>Experienced and professional Front-end developer &amp; user-interface designer has various background in web field has no limit and ambitious also talented with leadership skills. I love my work and I learn new things every day I feel happy when I have things done  </p>',
-		counter:"",
+		jobTitle:"vue js liberary for UI componenets",
+		counter:3,
+		watchedCounter:"",
+		true:true,
+		bgColor:"#000",
+		demintion:4,
+
+		
 	},
 	computed:{
-
+		multiblied:function(){
+			return this.counter *2
+		},
+		classes:function(){
+			return{
+				green : this.true,
+				blue : !this.true,
+			}
+		},
+		style:function(){
+			return{
+				background:this.bgColor,
+				width:this.demintion + '%',
+				height:this.demintion/2 + "%"
+			}
+		}
 	},
 	methods:{
-		toggle:function(e){
-
-			e.target.classList = "toggle"
-	
-		},
 		count:function(){
 			this.counter++
 		},
 		discount:function(){
-			this.counter--
+			if(this.counter > 1)
+				this.counter--
+		},
+
+	},
+	watch:{
+		counter:function(){
+			if(this.counter < 2){
+				this.watchedCounter = "yayy its over 5";
+			}else if(this.counter == 5){
+				this.watchedCounter = ' its ten';
+			}else{
+				this.watchedCounter = 'I dunno';
+
+			}
 		}
-
-
 	}
 })
