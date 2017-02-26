@@ -605,6 +605,8 @@ img.toggle {
   transition: 0.2s;
   background: #333;
   margin: 5px;
+  text-align: center;
+  color: #fff;
 }
 .box.green {
   background: #41b883;

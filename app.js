@@ -3,12 +3,14 @@ new Vue({
 	data:{
 		name:"Vue-Kite",
 		img:"img/logo.png",
+		img2:"img/ahmed.png",
 		jobTitle:"vue js liberary for UI componenets",
 		counter:3,
 		watchedCounter:"",
 		true:true,
 		bgColor:"#000",
-		demintion:4,
+		demintion:22,
+		showView:true
 
 		
 	},
@@ -25,8 +27,9 @@ new Vue({
 		style:function(){
 			return{
 				background:this.bgColor,
-				width:this.demintion + '%',
-				height:this.demintion/2 + "%"
+				width:'calc(' + this.demintion + '% - 1.5em - 10px)',
+				height:'calc(' + this.demintion/2 + '% - 1.5em - 10px)',
+				lineHeight:this.demintion*1.8 +"px"
 			}
 		}
 	},

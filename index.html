@@ -8,19 +8,21 @@
   <body>
     <main class="container" id="app">
       <section class="person">
-        <div class="person__img"><img v-bind:src="img"/></div>
+        <div class="person__img" v-if="showView"><img v-bind:src="img"/></div>
+        <div class="person__img" v-else="v-else"><img v-bind:src="img2"/></div>
         <h1 class="person__name">{{name}}</h1>
         <h2 class="person__job">{{jobTitle}}</h2>
         <div class="btn-holder btn-holder--left"><a class="btn" href="#">Downolad 1.0</a><a class="btn" href="#">Demos</a></div>
       </section>
       <section>
         <h3 class="section-title">playing With classes</h3>
-        <div class="box" v-for="n in counter" :style="style"></div>
+        <div class="box" v-for="n in counter" :style="style">{{n}}</div>
       </section>
       <section class="fixedFooter">
         <div class="col-third">
-          <input type="color" v-model="bgColor"/>
-          <input type="range" v-model="demintion" min="0" max="100"/>
+          <input type="color" v-model="bgColor"/>{{bgColor}}
+          <input type="range" v-model="demintion" min="0" max="100"/>{{demintion}}
+          <input type="checkbox" v-model="showView"/>
         </div>
         <div class="col-third"><a class="btn" href="#" @click.prevent="count">+</a><a class="btn" href="#" @click.prevent="discount">-</a></div>
         <div class="col-third">

@@ -8,8 +8,10 @@ html
   body
     main.container#app
       section.person
-        .person__img
+        .person__img(v-if="showView")
           img(v-bind:src='img')
+        .person__img(v-else)
+          img(v-bind:src='img2')
         h1.person__name
           | {{name}}
         h2.person__job {{jobTitle}}
@@ -18,14 +20,18 @@ html
           a.btn(href="#") Demos
       section
         h3.section-title playing With classes
-        .box(v-for="n in counter",  :style="style")
+        .box(v-for="n in counter",  :style="style") {{n}}
       
       
         
       section.fixedFooter
         .col-third
           input(type='color' v-model="bgColor")
+          |{{bgColor}}
           input(type='range' v-model="demintion" min="0" max="100")
+          |{{demintion}}
+          input(type="checkbox" v-model="showView")
+
         .col-third
           a.btn(href="#" @click.prevent='count') +
           a.btn(href="#" @click.prevent='discount') -
