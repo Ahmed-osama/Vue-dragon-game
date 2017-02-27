@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 
       css: {
         files: [
-          'src/*.scss',
+          'src/scss/*.scss',
         
         ],
 
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       
       pug: {
         files: [
-          'src/*.pug',
+          'src/pug/*.pug',
         ],
         tasks: 'pug',
       },
@@ -40,7 +40,8 @@ module.exports = function(grunt) {
           noCache: true,
         },
         files: {
-          'style.css': 'src/style.scss'
+          'css/style.css': 'src/scss/style.scss',
+          'css/game.css': 'src/scss/game.scss'
         }
       }
     },
@@ -55,7 +56,8 @@ module.exports = function(grunt) {
         },
 
         files: {
-          'index.html'   : ['src/index.pug'],
+          'index.html'   : ['src/pug/index.pug'],
+          'game.html'   : ['src/pug/game.pug'],
         }
       }
     },

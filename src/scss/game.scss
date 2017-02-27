@@ -1,0 +1,201 @@
+$bodyFont:'Montserrat', sans-serif;
+$titleFont: 'Fredoka One', cursive;
+$dark:#333333;
+$wh:#fff;
+$orange:#FF9100;
+$red:#FF3D00;
+$green:#76FF03;
+$blue:#35495e;
+$gry:#333;
+@import '_normalize.scss';
+
+body{
+	background:url(../img/gamebg.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	&:before, &:after{
+		content:'';
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: #2c3e50; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to left, #2c3e50 , #3498db); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to left, #2c3e50 , #3498db); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		opacity: 0.3; 
+	}
+	&:after{
+		background: #000;
+		opacity: 0.6;
+		z-index: 1;
+	}
+}
+.monster{
+	position: fixed;
+	height: 50vh;
+	text-align: center;
+	width:50vw;
+	z-index: 4;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin:auto;
+
+	img{
+		transition:0.3s;
+		max-height: 100%;
+		max-width: 100%;
+		filter:drop-shadow(8px 8px 23px rgba(39, 74, 134, 0.6));
+		-webkit-filter:drop-shadow(8px 8px 23px rgba(39, 74, 134, 0.6));
+		&:hover{
+			transform:scale(0.8);
+		}
+	}
+}
+
+.gameHead{
+	position: fixed;
+	top: 10vh;
+	padding:0 10vh;
+	z-index: 2;
+	width: 100vw;
+}
+.hp{
+	width:30%;
+	float:left;
+	
+
+	&__title{
+		color:$wh;
+		font-size: 1em;
+		margin-bottom: 0.5em;
+	}
+	&__meter{
+		height: 30px;
+		font-size: 2px;
+		background: rgba(0,0,0,0.5);
+		box-shadow:0 0 15px rgba(0,0,0,0.5);
+		position: relative;
+		display: block;
+		overflow: hidden;
+		border-radius:5px;
+		svg{
+			width: 1em;
+			height: 1em;
+		}
+	}
+	&__pool{
+		position:absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 50%;
+		z-index: 1;
+		background: $red;
+		opacity: 0.85;
+
+	}
+	&--monster{
+		float: right;
+		text-align: right;
+		.hp__pool{
+			background: $green;
+			right: 0;
+			left: auto;
+		}
+	}
+}
+
+
+.skillBar{
+	text-align: center;
+	position: fixed;
+	z-index: 2;
+	bottom:50px;
+	width: 100%;
+}
+
+
+
+.skillbtn{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius:50%;
+	background:#fff;
+	font-size: 2.5em;
+	vertical-align: middle;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	transition:0.2s;
+	&:hover{
+		transform:scale(1.2);
+	}
+	svg{
+		display: inline-block;
+		width: 0.7em;
+		height: 0.7em;
+		vertical-align: middle;
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin:auto;
+		opacity: 0.8;
+
+	}
+
+	&--hit{
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaf4b+0,f96d09+100 */
+		background: $orange; 
+
+	}
+
+	&--heal{
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8fc400+0,5a9600+100 */
+		background: $green; 
+	}
+	&--special{
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3019+0,cf0404+100;Red+3D */
+		background: $red; 
+	}
+	& + & {
+		margin-left: 20px;
+	}
+}
+
+.gamelog{
+	border-radius:20px;
+	background: rgba(0,0,0,0.7);
+	box-shadow:0 0 50px rgba(0,0,0,0.5);
+	width: 25vw;
+	min-width:200px;
+	height: 30vh;
+	min-height:200px;
+	overflow: hidden;
+	position: fixed;
+	left: 10vh;
+	bottom: 10vh;
+	z-index: 5;
+	opacity: 0.5;
+	transition:0.2s;
+	padding: 30px;
+	&:hover{
+		opacity:1;
+		overflow-y:scroll;
+	}
+	&__item{
+		color:$wh;
+	}
+}
+
+
