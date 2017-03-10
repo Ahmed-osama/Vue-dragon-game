@@ -74,6 +74,8 @@ var game = new Vue({
 		startgame :function(){
 			active = this.userInput.length >= 5? true : false
 			this.gameActive = active
+			this.stopThis('#winner')
+			this.stopThis('#lose')
 		
 		},
 		playThis:function(el){
