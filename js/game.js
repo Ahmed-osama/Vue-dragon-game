@@ -144,7 +144,7 @@ var game = new Vue({
 			this.loser      = false
 			this.loginModal = true
 			this.userInput  = ''
-			this.turns      = ''
+			this.turns      = []
 		}
 	}
 })
