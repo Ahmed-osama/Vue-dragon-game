@@ -29,6 +29,7 @@ html
       a.sound-btn(@click='soundToggle')
         |sound :
         strong {{soundText}}
+      a.copyrights(href="https://www.linkedin.com/in/ahmed-osama-51792a7b/") made with love <3 by ahmed osama
       footer.skillBar
         a.skillbtn.skillbtn--hit(@click='normalHit')
           svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 512 512')
@@ -46,8 +47,6 @@ html
       ul.gamelog
         li.gamelog__item(v-for='turn in turns', :class='{"player":turn.isPlayer}') {{turn.message}}
 
-      audio#bg_music(loop)
-        source(src="sound/You Win Or You Die - Game of Thrones -by Game of Thrones Songs [soundtake.net].mp3")
       modal(:class="{'modal--gone':gameActive}" v-if='loginModal')
         h2(slot="title") please Enter your name
         div(slot="body")
@@ -75,6 +74,24 @@ html
           a.btn.btn--green( @click='newplayer') new player
           a.btn( @click='startgame') Restart
       .loading(:class='{"loading--gone":!loading}')
+      
+
+      audio#bg_music(loop)
+        source(src="sound/You Win Or You Die - Game of Thrones -by Game of Thrones Songs [soundtake.net].mp3")
+      audio#heal
+        source(src="sound/heal.wav")
+      audio#arrow
+        source(src="sound/arrow.wav")
+      audio#lose
+        source(src="sound/lose.wav")
+      audio#sword
+        source(src="sound/sword.flac")
+      audio#winner
+        source(src="sound/winner.wav")
+
+
+
+
 script#modalTemplate(type="x/template")
   .modal
     .modal__container

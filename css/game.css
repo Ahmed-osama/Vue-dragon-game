@@ -506,11 +506,11 @@ body:after {
   animation-fill-mode: forwards;
 }
 .loading--gone {
-  opacity: 0;
+  opacity: 0.9;
   visibility: hidden;
 }
 
-.sound-btn {
+.sound-btn, .copyrights {
   position: fixed;
   left: 10vh;
   bottom: 30px;
@@ -520,9 +520,15 @@ body:after {
   cursor: pointer;
   text-shadow: 0 0 3px #fff;
 }
-.sound-btn:hover {
+.sound-btn:hover, .copyrights:hover {
   text-shadow: 0 0 13px #fff;
   opacity: 1;
+}
+
+.copyrights {
+  font-size: 11px;
+  text-shadow: none;
+  bottom: 15px;
 }
 
 .monster {

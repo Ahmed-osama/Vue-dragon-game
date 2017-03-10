@@ -17,19 +17,19 @@ var game = new Vue({
 	el:"#game",
 	componenets:['modal'],
 	data:{
-		userInput:"",
-		playerName:"",
-		monsterName:"Drogon",
-		monsterHealth:0,
-		playerHealth:0,
-		gameActive:false,
-		loginModal:true,
-		sound:true,
-		bgmusic:document.querySelectorAll('#bg_music'),
-		turns:[],
-		winner:false,
-		loser:false,
-		loading:true
+		userInput     : "",
+		playerName    : "",
+		monsterName   : "Drogon",
+		monsterHealth : 0,
+		playerHealth  : 0,
+		gameActive    : false,
+		loginModal    : true,
+		sound         : true,
+		bgmusic       : document.querySelectorAll('#bg_music'),
+		turns         : [],
+		winner        : false,
+		loser         : false,
+		loading       : true
 	},
 	computed:{
 		soundText:function(){
@@ -51,12 +51,12 @@ var game = new Vue({
 			if(this.gameActive){
 
 				setTimeout(function(){
-					that.loginModal = false
-					that.playerName = that.userInput
-					that.monsterHealth =100
-					that.playerHealth =100
-					that.winner=false
-					that.loser=false
+					that.loginModal    = false
+					that.playerName    = that.userInput
+					that.monsterHealth = 100
+					that.playerHealth  = 100
+					that.winner        = false
+					that.loser         = false
 					that.bgmusic[0].play(); 
 				},500)
 			}
@@ -76,6 +76,14 @@ var game = new Vue({
 			this.gameActive = active
 		
 		},
+		playThis:function(el){
+			el = document.querySelectorAll(el)
+			el[0].play()
+		},
+		stopThis:function(el){
+			el = document.querySelectorAll(el)
+			el[0].pause()
+		},
 		soundToggle:function(){
 			this.sound = !this.sound
 		},
@@ -93,21 +101,23 @@ var game = new Vue({
 			heal = 10
 			this.playerHealth += heal
 			this.log("You healed :", heal, true)
+			this.playThis('#heal')
 			setTimeout(function(){
 				that.monsterHit()
-			},250)
-			
+			},250)			
 		},
 		normalHit:function(){
 			hit = this.calculateDamage(6,9)
 			this.monsterHealth -= hit
 			this.log("You dealed normal Hit :", hit, true)
+			this.playThis('#arrow')
 			this.monsterHit()
 		},
 		speciallHit:function(){
 			hit = this.calculateDamage(8,11)
 			this.monsterHealth -= hit
 			this.log("You dealed special Hit :", hit, true)
+			this.playThis('#sword')
 			this.monsterHit()
 		},
 		log:function(msg, hit, player){
@@ -120,16 +130,21 @@ var game = new Vue({
 			if(this.monsterHealth <= 0){
 				this.winner = true
 				this.gameActive = false
+				this.playThis('#winner')
 			}else if(this.playerHealth <= 0){
-				this.loser = true
+				this.loser      = true
 				this.gameActive = false
+				this.playThis('#lose')
 			}
 		},
 		newplayer:function(){
-			this.winner = false
-			this.loser = false
+			this.stopThis('#winner')
+			this.stopThis('#lose')
+			this.winner     = false
+			this.loser      = false
 			this.loginModal = true
-			this.userInput = ''
+			this.userInput  = ''
+			this.turns      = ''
 		}
 	}
 })

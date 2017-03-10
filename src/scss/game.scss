@@ -85,11 +85,11 @@ body{
 	animation: loading  1s;
 	animation-fill-mode: forwards;
 	&--gone{
-		opacity: 0;
+		opacity: 0.9;
 		visibility: hidden;
 	}
 }
-.sound-btn{
+.sound-btn, .copyrights{
 	position: fixed;
 	left: 10vh;
 	bottom: 30px;
@@ -102,6 +102,11 @@ body{
 		text-shadow:0 0 13px $wh;
 		opacity: 1;
 	}
+}
+.copyrights{
+	font-size: 11px;
+	text-shadow: none;
+	bottom:15px;
 }
 .monster{
 	position: fixed;

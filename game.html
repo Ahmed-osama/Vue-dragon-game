@@ -21,7 +21,7 @@
               </svg></span></span>
         </div>
       </header>
-      <div class="monster"><img src="img/monster2.png"/></div><a class="sound-btn" @click="soundToggle">sound :<strong>{{soundText}}</strong></a>
+      <div class="monster"><img src="img/monster2.png"/></div><a class="sound-btn" @click="soundToggle">sound :<strong>{{soundText}}</strong></a><a class="copyrights" href="https://www.linkedin.com/in/ahmed-osama-51792a7b/">made with love <3 by ahmed osama</a>
       <footer class="skillBar"><a class="skillbtn skillbtn--hit" @click="normalHit">
           <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
             <path d="M0 0h512v512H0z" fill="transparent"></path>
@@ -36,9 +36,6 @@
       <ul class="gamelog">
         <li class="gamelog__item" v-for="turn in turns" :class="{&quot;player&quot;:turn.isPlayer}">{{turn.message}}</li>
       </ul>
-      <audio id="bg_music" loop="loop">
-        <source src="sound/You Win Or You Die - Game of Thrones -by Game of Thrones Songs [soundtake.net].mp3"/>
-      </audio>
       <modal :class="{'modal--gone':gameActive}" v-if="loginModal">
         <h2 slot="title">please Enter your name</h2>
         <div slot="body">
@@ -62,6 +59,24 @@
         <div slot="footer"><a class="btn btn--green" @click="newplayer">new player</a><a class="btn" @click="startgame">Restart</a></div>
       </modal>
       <div class="loading" :class="{&quot;loading--gone&quot;:!loading}"></div>
+      <audio id="bg_music" loop="loop">
+        <source src="sound/You Win Or You Die - Game of Thrones -by Game of Thrones Songs [soundtake.net].mp3"/>
+      </audio>
+      <audio id="heal">
+        <source src="sound/heal.wav"/>
+      </audio>
+      <audio id="arrow">
+        <source src="sound/arrow.wav"/>
+      </audio>
+      <audio id="lose">
+        <source src="sound/lose.wav"/>
+      </audio>
+      <audio id="sword">
+        <source src="sound/sword.flac"/>
+      </audio>
+      <audio id="winner">
+        <source src="sound/winner.wav"/>
+      </audio>
     </div>
   </body>
 </html>
