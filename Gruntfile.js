@@ -56,8 +56,8 @@ module.exports = function(grunt) {
         },
 
         files: {
-          'index.html'   : ['src/pug/index.pug'],
-          'game.html'   : ['src/pug/game.pug'],
+          // 'index.html'   : ['src/pug/index.pug'],
+          'index.html'   : ['src/pug/game.pug'],
         }
       }
     },
